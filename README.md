@@ -5,9 +5,11 @@ Este proyecto se realizo del curso de platzi php en el cual se detalla el uso de
 desarrollo
 
 <h2>Se utilizo</h2>
- - php v7
- - composer
- - mysql
- - phroute/phroute //rutas de las url
- - twig/twig // motor de template
- - psr-4 autoload //carga de rutas mas limpias
+<ul>
+  <li>php v7</li>
+  <li>composer</li>
+  <li>mysql</li>
+  <li>phroute/phroute (rutas de las url)</li>
+  <li>twig/twig (motor de template)</li>
+  <li>psr-4 autoload (carga de rutas mas limpias)</li>
+<ul>
