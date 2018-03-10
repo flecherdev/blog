@@ -18,20 +18,19 @@
             </div>
             <div class="row">
                 <div class="col-md-8">
-                    <?php 
-                    foreach ($blogPost as $blogPost){
-                        echo '<div class="blog-post">';
-                        echo '<h2>'.$blogPost['title'].'</h2>';
-                        echo '<p>Abril 5, 2010 by <a href="http://">Pepe</a></p>';
-                        echo '<div class="blog-post-image">';
-                        echo '<img src="images/pan.png" alt="">';
-                        echo '</div>';
-                        echo '<div class="blog-post-content">';
-                        echo $blogPost['content'];
-                        echo '</div>';
-                        echo '</div>';
-                    }
-                    ?>
+                    {% for blogPost in blogPost %}
+                        <div class="blog-post">
+                            <h2>{{ blogPost.title }}</h2>
+                            <p>Abril 5, 2010 by <a href="http://">Pepe</a></p>
+                            <div class="blog-post-image">
+                                <img src="images/pan.png" alt="">
+                            </div>
+                            <div class="blog-post-content">
+                                {{ blogPost.content }}
+                            </div>
+                        </div>
+                    {% endfor %}
+
                 </div>
                 <div class="col-md-4">Sidebar</div>
             </div>
@@ -39,7 +38,7 @@
                 <div class="col-md-12">
                     <footer>
                         Pie de pagina<br>
-                        <a href="<?php echo BASE_URL;?>admin">Administrador de contenido</a>
+                        <a href="{{ 'admin' | url}}">Administrador de contenido</a>
                     </footer>
                 </div>
             </div>    
