@@ -1,7 +1,7 @@
 
 <h1>Proyecto BLOG</h1>
 <h2>Descripcion</h2>
-Este proyecto se realizo del curso de platzi php en el cual se detalla el uso de modelado MVC y se utilizaron framework para su
+Este proyecto se realizo del curso de platzi php en el cual se detalla el uso de modelado MVC y se utilizaron algunos framework para su
 desarrollo
 
 <h2>Se utilizo</h2>
