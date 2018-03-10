@@ -1,18 +1,4 @@
-<?php
-    include_once '../config.php';
-    $result = false;
 
-    if (!empty($_POST)) {
-        $sql = 'INSERT INTO `blog-posts`(`title`, `content`)  VALUES (:title, :content)';
-        $query = $pdo->prepare($sql);
-        $query->execute([
-            'title' => $_POST['title'],
-            'content' => $_POST['content']
-        ]);
-        $result = true;
-    }
-   
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -33,15 +19,15 @@
             <div class="row">
                 <div class="col-md-8">
                     <h2>Nuevo Post</h2>
-                    <a class="btn btn-default" href="posts.php">Regresar a post</a>
+                    <a class="btn btn-default" href="<?php echo BASE_URL;?>admin/posts">Regresar a post</a>
                     
                     <?php 
-                        if ($result) {
+                        if (isset($result) && $result) {
                             echo '<div class="alert alert-success"> Post guardado</div>';
                         }
                     ?>
 
-                    <form action="insert-post.php" method="post">
+                    <form method="post">
                         <div class="form-group">
                             <label for="inputTitle">Titulo</label>
                             <input class="form-control" type="text" name="title" id="inputTitle">

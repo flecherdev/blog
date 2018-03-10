@@ -17,21 +17,21 @@
                 </div>
             </div>
             <div class="row">
-                <h2>Panel Administrador</h2>
                 <div class="col-md-8">
+                <h2>Panel Administrador</h2>
                     <ul>
                         <li>
-                            <a href="posts.php">Administrar Post</a>
+                            <a href="<?php echo BASE_URL;?>admin/posts">Administrar Post</a>
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-4">Sidebar</div>
+               
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <footer>
                         Pie de pagina<br>
-                        <a href="admin/index.php">Administrador de contenido</a>
+                        <a href="<?php echo BASE_URL;?>admin">Administrador de contenido</a>
                     </footer>
                 </div>
             </div>    

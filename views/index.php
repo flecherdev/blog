@@ -39,7 +39,7 @@
                 <div class="col-md-12">
                     <footer>
                         Pie de pagina<br>
-                        <a href="admin/index.php">Administrador de contenido</a>
+                        <a href="<?php echo BASE_URL;?>admin">Administrador de contenido</a>
                     </footer>
                 </div>
             </div>    

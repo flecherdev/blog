@@ -1,12 +1,4 @@
-<?php
-    include_once '../config.php';
-    
-    $query = $pdo->prepare('SELECT * FROM `blog-posts` ORDER BY id DESC');
-    $query->execute();
 
-    $blogPost = $query->fetchAll(PDO::FETCH_ASSOC);
-
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,7 +20,7 @@
                 
                 <div class="col-md-8">
                 <h2>Posts</h2>
-                <a class="btn btn-primary" href="insert-post.php">Nuevo Post</a>
+                <a class="btn btn-primary" href="<?php echo BASE_URL;?>admin/posts/create">Nuevo Post</a>
                     <table class="table">
                         <tr>
                             <th>Titulo</th>
@@ -54,7 +46,7 @@
                 <div class="col-md-12">
                     <footer>
                         Pie de pagina<br>
-                        <a href="admin/index.php">Administrador de contenido</a>
+                        <a href="<?php echo BASE_URL;?>admin">Administrador de contenido</a>
                     </footer>
                 </div>
             </div>    
