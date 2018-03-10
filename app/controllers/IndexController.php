@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Controllers;
+namespace app\controllers;
 
 class IndexController{
 
     public function getIndex(){
-        
+        //esta variable se toma del scope superior
         global $pdo;
 
         $query = $pdo->prepare('SELECT * FROM `blog-posts` ORDER BY id DESC');
@@ -16,5 +16,3 @@ class IndexController{
         return  render('../views/index.php',['blogPost' => $blogPost]);    
     }
 }
-
-?>
