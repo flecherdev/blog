@@ -1,8 +1,9 @@
 <?php
 
 namespace app\controllers\admin;
+use app\controllers\BaseController;
 
-class PostController{
+class PostController extends BaseController{
     public function getIndex(){
         #admin/posts o /asdmin/posts/index
         global $pdo;
@@ -12,12 +13,12 @@ class PostController{
     
         $blogPost = $query->fetchAll(\PDO::FETCH_ASSOC);
         
-        return  render('../views/admin/posts.php',['blogPost' => $blogPost]);    
+        return  $this->render('admin/posts.twig',['blogPost' => $blogPost]);    
     }
 
     public function getCreate(){
         #admin/posts/create
-        return  render('../views/admin/insert-post.php');
+        return  $this->render('admin/insert-post.twig');
     }
 
     public function postCreate(){
@@ -30,7 +31,7 @@ class PostController{
             'content' => $_POST['content']
         ]);
             
-        return render('../views/admin/insert-post.php',['result' => $result]);
+        return $this->render('admin/insert-post.twig',['result' => $result]);
     }
 }
 

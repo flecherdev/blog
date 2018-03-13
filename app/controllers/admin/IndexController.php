@@ -1,11 +1,12 @@
 <?php
 
 namespace app\controllers\admin;
+use app\controllers\BaseController;
 
-class IndexController{
+class IndexController extends BaseController{
 
     public function getIndex(){
-        return  render('../views/admin/index.php');    
+        return  $this->render('admin/index.twig');    
     }
 }
 
