@@ -2,16 +2,13 @@
 
 namespace app\controllers;
 
+use app\models\BlogPost;
+
 class IndexController extends BaseController{
 
     public function getIndex(){
-        //esta variable se toma del scope superior
-        global $pdo;
-
-        $query = $pdo->prepare('SELECT * FROM `blog-posts` ORDER BY id DESC');
-        $query->execute();
-    
-        $blogPost = $query->fetchAll(\PDO::FETCH_ASSOC);
+        
+        $blogPost = BlogPost::query()->orderBy('id','desc')->get();
         
         return  $this->render('index.twig',['blogPost' => $blogPost]);    
     }
