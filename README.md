@@ -12,4 +12,6 @@ desarrollo
   <li>phroute/phroute (rutas de las url)</li>
   <li>twig/twig (motor de template)</li>
   <li>psr-4 autoload (carga de rutas mas limpias)</li>
+  <li>ilumnita/database (eloquent)</li> 
+  <li>vlucas/phpdotenc v2.4.0 (variables de entorno)</li>
 <ul>
