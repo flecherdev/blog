@@ -3,7 +3,10 @@
 {% block content %}
     <h2>Nuevo Post</h2>
     <a type="button" class="btn btn-defaul" href="{{ 'admin/posts' | url }}">Regresar a post</a>
-     {% if result %} 
+    {% if errors %}
+        {% include('partials/errors.twig') %}
+    {% endif %} 
+    {% if result %} 
         <div class="alert alert-success">Post guardado</div>
      {% endif %}
     <form method="post">

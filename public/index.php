@@ -7,7 +7,8 @@ ini_set('display_startup_errors',1);
 error_reporting(E_ALL);
 
 require_once '../vendor/autoload.php';
-//include_once '../config.php';
+//Inicialializamos la sesion 
+session_start(); 
 
 //Utilizamos variables de entorno
 $dotenv = new Dotenv\Dotenv(__DIR__ . '/..');
@@ -49,10 +50,13 @@ $router = new RouteCollector();
 
 //Ruta principal
 $router->controller('/', app\controllers\IndexController::class);//::class devuelve el nombre de la clase
+//Ruta Autentificacion 
+$router->controller('/auth', app\controllers\AuthController::class);
 //Ruta Administrador
 $router->controller('/admin', app\controllers\admin\IndexController::class);
 //Ruta Insert
 $router->controller('/admin/posts', app\controllers\admin\PostController::class); 
+$router->controller('/admin/users', app\controllers\admin\UserController::class); 
 
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'],$route);

@@ -3,6 +3,7 @@
 namespace app\controllers\admin;
 use app\controllers\BaseController;
 use app\models\BlogPost;
+use Sirius\Validation\Validator;
 
 class PostController extends BaseController{
     public function getIndex(){
@@ -16,16 +17,31 @@ class PostController extends BaseController{
     }
 
     public function postCreate(){
-        
-        $blogPost = new BlogPost([
-            'title' => $_POST['title'],
-            'content' => $_POST['content']
-        ]);
-        $blogPost->save();
-        
-        $result = true;
+
+        $errors = [];
+        $result = false;
+        //Validaciones 
+        $validator = new Validator();
+        $validator->add('title','required');
+        $validator->add('content','required');
+
+        if($validator->validate($_POST)){
+            $blogPost = new BlogPost([
+                'title' => $_POST['title'],
+                'content' => $_POST['content']
+            ]);
+            $blogPost->save();
             
-        return $this->render('admin/insert-post.twig',['result' => $result]);
+            $result = true;
+        }else{
+            $errors = $validator->getMessages();
+            //var_dump($errors);
+        }
+            
+        return $this->render('admin/insert-post.twig',[
+            'result' => $result,
+            'errors' => $errors
+            ]);
     }
 }
 
