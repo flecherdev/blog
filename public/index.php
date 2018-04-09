@@ -48,15 +48,26 @@ use Phroute\Phroute\RouteCollector;
 
 $router = new RouteCollector();
 
+//Filtros
+$router->filter('auth', function(){
+    if(!isset($_SESSION['userId'])){
+        header('Location: '. BASE_URL.'auth/login');
+        return false;
+    }
+});
 //Ruta principal
 $router->controller('/', app\controllers\IndexController::class);//::class devuelve el nombre de la clase
 //Ruta Autentificacion 
 $router->controller('/auth', app\controllers\AuthController::class);
-//Ruta Administrador
-$router->controller('/admin', app\controllers\admin\IndexController::class);
-//Ruta Insert
-$router->controller('/admin/posts', app\controllers\admin\PostController::class); 
-$router->controller('/admin/users', app\controllers\admin\UserController::class); 
+
+//Grupo de filtros inicial - en estas rutas se verifica el user login
+$router->group(['before' => 'auth'], function($router){
+    //Ruta Administrador
+    $router->controller('/admin', app\controllers\admin\IndexController::class);
+    //Ruta Insert
+    $router->controller('/admin/posts', app\controllers\admin\PostController::class); 
+    $router->controller('/admin/users', app\controllers\admin\UserController::class); 
+});
 
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'],$route);

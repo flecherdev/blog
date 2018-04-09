@@ -2,12 +2,16 @@
 
 {% block content %}
     <h2>Panel Administrador</h2>
+    <p> Bienvenido {{ user.name }}</p>
     <ul>
         <li>
             <a href="{{ 'admin/posts' | url}}">Administrar Post</a>
         </li>
         <li>
             <a href="{{ 'admin/users' | url}}">Administrar Usuario</a>
+        </li>
+        <li>
+            <a href="{{ 'auth/logout' | url}}">Logout</a>
         </li>
     </ul>
 {% endblock %}
