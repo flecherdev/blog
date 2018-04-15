@@ -14,4 +14,5 @@ desarrollo
   <li>psr-4 autoload (carga de rutas mas limpias)</li>
   <li>ilumnita/database (eloquent)</li> 
   <li>vlucas/phpdotenc v2.4.0 (variables de entorno)</li>
+  <li>monolog/monolog v1.23.0 (para log)</li>
 <ul>

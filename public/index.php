@@ -55,10 +55,14 @@ $router->filter('auth', function(){
         return false;
     }
 });
+
+
 //Ruta principal
 $router->controller('/', app\controllers\IndexController::class);//::class devuelve el nombre de la clase
 //Ruta Autentificacion 
 $router->controller('/auth', app\controllers\AuthController::class);
+//Ruta detalle
+$router->controller('/detalle', app\controllers\DetalleController::class);
 
 //Grupo de filtros inicial - en estas rutas se verifica el user login
 $router->group(['before' => 'auth'], function($router){

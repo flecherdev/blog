@@ -3,11 +3,13 @@
 {% block content %}
     {% for blogPost in blogPost %}
     <div class="blog-post">
-        <h2>{{ blogPost.title }}</h2>
+        <h2><a href="{{ 'detalle/' | url }}{{ blogPost.id }}">{{ blogPost.title }}</a></h2>
         <p>Abril 5, 2010 by <a href="http://">Pepe</a></p>
-        <div class="blog-post-image">
-            <img src="images/pan.png" alt="">
-        </div>
+        {% if blogPost.img_url %}
+            <div class="blog-post-image">
+                <img src="{{ blogPost.img_url }}" width="100%" alt=""> 
+            </div>
+        {% endif %}    
         <div class="blog-post-content">
             {{ blogPost.content }}
         </div>
